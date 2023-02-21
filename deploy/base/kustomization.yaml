@@ -96,3 +96,15 @@ replacements:
         - subjects.[name=odh-dashboard].namespace
       options:
         create: true
+- source:
+    kind: ClusterRoleBinding
+    name: odh-dashboard
+    fieldPath: metadata.annotations.team/namespace
+  targets:
+    - select:
+        kind: ClusterRoleBinding
+        name: odh-dashboard
+      fieldPaths:
+        - subjects.[name=odh-dashboard].namespace
+      options:
+        create: true
