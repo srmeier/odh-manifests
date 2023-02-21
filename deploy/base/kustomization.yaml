@@ -12,8 +12,8 @@ resources:
   #
   - ../../prometheus/cluster/base
   #
-  - ../../prometheus/operator/base
-  - ../../prometheus/operator/overlays/kubeflow
+#  - ../../prometheus/operator/base
+#  - ../../prometheus/operator/overlays/kubeflow
   #
   - ../../grafana/cluster/base
   #
