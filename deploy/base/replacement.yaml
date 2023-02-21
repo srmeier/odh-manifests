@@ -21,5 +21,5 @@ targets:
     #fieldPath: metadata.name
     #fieldPath: data.namespace
     #fieldPath: metadata.labels.team/namespace
-#    options:
-#      create: true
+    options:
+      create: true
