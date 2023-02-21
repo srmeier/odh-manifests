@@ -34,7 +34,9 @@ resources:
 #  - ../../data-science-pipelines/overlay/default-configs
 
 replacements:
+# Update odh-common-config ConfigMap
 - path: replacement.yaml
+# Make sure that the new namespace is labeled for ArgoCD to manage it
 - source:
     kind: Namespace
     name: opendatahub
@@ -47,6 +49,7 @@ replacements:
         - metadata.labels.[argocd.argoproj.io/managed-by]
       options:
         create: true
+# Update the name of the namespace
 - source:
     kind: Namespace
     name: opendatahub
@@ -57,6 +60,7 @@ replacements:
         name: opendatahub
       fieldPaths:
         - metadata.name
+# Update the namespace for the OperatorGroup
 - source:
     kind: OperatorGroup
     name: opendatahub
@@ -65,5 +69,16 @@ replacements:
     - select:
         kind: OperatorGroup
         name: opendatahub
+      fieldPaths:
+        - metadata.namespace
+# Specify a namespace for the ClusterRoleBinding subjects
+- source:
+    kind: ClusterRoleBinding
+    name: odh-dashboard-monitoring
+    fieldPath: metadata.annotations.team/namespace
+  targets:
+    - select:
+        kind: ClusterRoleBinding
+        name: odh-dashboard-monitoring
       fieldPaths:
         - metadata.namespace
