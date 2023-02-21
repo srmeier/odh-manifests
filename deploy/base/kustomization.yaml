@@ -5,23 +5,23 @@ kind: Kustomization
 resources:
   - ../../odh-common/base
   #
-  - ../../odh-dashboard/base
+  #- ../../odh-dashboard/base
 #  - ../../odh-dashboard/overlays/authentication
 #  - ../../odh-dashboard/overlays/odhdashboardconfig
 #  - ../../odh-dashboard/crd
   #
-  - ../../prometheus/cluster/base
+  #- ../../prometheus/cluster/base
   #
 #  - ../../prometheus/operator/base
 #  - ../../prometheus/operator/overlays/kubeflow
   #
-  - ../../grafana/cluster/base
+  #- ../../grafana/cluster/base
   #
-  - ../../grafana/grafana/base
+  #- ../../grafana/grafana/base
   #
-  - ../../odh-notebook-controller/base
+  #- ../../odh-notebook-controller/base
   #
-  - ../../notebook-images/base
+  #- ../../notebook-images/base
   #
 #  - ../../model-mesh/base
 #  - ../../model-mesh/overlays/odh-model-controller
