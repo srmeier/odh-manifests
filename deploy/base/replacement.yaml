@@ -15,9 +15,9 @@ source:
 targets:
   - select:
       kind: ConfigMap
-      #name: odh-common-config
+      name: odh-cao-team-0
       #fieldPath: metadata.name
-      #fieldPath: data.namespace
-      fieldPath: metadata.labels.team/namespace
+      fieldPath: data.namespace
+      #fieldPath: metadata.labels.team/namespace
     options:
       create: true
