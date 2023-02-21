@@ -19,9 +19,10 @@ resources:
   #
   #- ../../grafana/grafana/base
   #
-  #- ../../odh-notebook-controller/base
+  - ../../odh-notebook-controller/base
   #
-  #- ../../notebook-images/base
+  - ../../notebook-images/base
+  - ../../notebook-images/overlays/additional
   #
 #  - ../../model-mesh/base
 #  - ../../model-mesh/overlays/odh-model-controller
