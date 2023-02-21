@@ -16,7 +16,8 @@ targets:
   - select:
       kind: ConfigMap
       name: odh-common-config
-      fieldPath: 'spec.data.namespace'
+      fieldPaths:
+        - metadata.labels.app
       #fieldPath: metadata.name
       #fieldPath: data.namespace
       #fieldPath: metadata.labels.team/namespace
