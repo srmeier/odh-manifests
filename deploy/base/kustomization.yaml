@@ -81,5 +81,6 @@ replacements:
         kind: ClusterRoleBinding
         name: odh-dashboard-monitoring
       fieldPaths:
-        #- subjects[0].namespace
-        - metadata.labels
+        - subjects[0].namespace
+      options:
+        create: true
