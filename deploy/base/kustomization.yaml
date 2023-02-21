@@ -33,12 +33,13 @@ resources:
 #  - ../../data-science-pipelines/overlay/object-store-minio
 #  - ../../data-science-pipelines/overlay/default-configs
 
-# replacements:
-#   - source:
-#     kind: ConfigMap
-#     name: odh-common-config
-#     fieldPath: data.namespace
-#   - target:
-#     kind: ConfigMap
-#     name: odh-common-config
-#     fieldPath: metadata.annotations.team/namespace
+replacements:
+- source:
+    kind: ConfigMap
+    name: odh-common-config
+    fieldPath: metadata.annotations.team/namespace
+  target:
+  - select:
+      kind: ConfigMap
+      name: odh-common-config
+    fieldPath: data.namespace
