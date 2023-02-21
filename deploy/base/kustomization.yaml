@@ -21,8 +21,8 @@ resources:
   #
   - ../../odh-notebook-controller/base
   #
-  - ../../notebook-images/base
-  - ../../notebook-images/overlays/additional
+  - ../../jupyterhub/notebook-images/base
+  - ../../jupyterhub/notebook-images/overlays/additional
   #
 #  - ../../model-mesh/base
 #  - ../../model-mesh/overlays/odh-model-controller
