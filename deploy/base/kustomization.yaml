@@ -5,8 +5,8 @@ kind: Kustomization
 resources:
   - ../../odh-common/base
   #
-  #- ../../odh-dashboard/base
-#  - ../../odh-dashboard/overlays/authentication
+  - ../../odh-dashboard/base
+  - ../../odh-dashboard/overlays/authentication
 #  - ../../odh-dashboard/overlays/odhdashboardconfig
 #  - ../../odh-dashboard/crd
   #
