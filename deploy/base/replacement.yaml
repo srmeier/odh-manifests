@@ -7,7 +7,7 @@ targets:
       kind: ConfigMap
       name: odh-common-config
     fieldPaths:
-      - metadata.labels.app
+      - metadata.namespace
       - data.namespace
     options:
       create: true
