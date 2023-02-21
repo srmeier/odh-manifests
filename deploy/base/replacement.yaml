@@ -19,5 +19,5 @@ targets:
     fieldPaths:
       - metadata.labels.app
       - data.namespace
-   options:
-     create: true
+    options:
+      create: true
