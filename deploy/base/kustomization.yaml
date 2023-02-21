@@ -1,0 +1,34 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../odh-common/base
+  #
+  - ../../odh-dashboard/base
+#  - ../../odh-dashboard/overlays/authentication
+#  - ../../odh-dashboard/overlays/odhdashboardconfig
+#  - ../../odh-dashboard/crd
+  #
+  - ../../prometheus/cluster/base
+  #
+  - ../../prometheus/operator/base
+  - ../../prometheus/operator/overlays/kubeflow
+  #
+  - ../../grafana/cluster/base
+  #
+  - ../../grafana/grafana/base
+  #
+  - ../../odh-notebook-controller/base
+  #
+  - ../../notebook-images/base
+  #
+  - ../../model-mesh/base
+  - ../../model-mesh/overlays/odh-model-controller
+#  - ../../model-mesh/crd
+  #
+  - ../../data-science-pipelines/base
+  - ../../data-science-pipelines/overlay/metadata-store-mariadb
+  - ../../data-science-pipelines/overlay/ds-pipeline-ui
+  - ../../data-science-pipelines/overlay/object-store-minio
+  - ../../data-science-pipelines/overlay/default-configs
