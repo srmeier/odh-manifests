@@ -10,7 +10,10 @@
 
 source:
   kind: ConfigMap
-  fieldPath: metadata.name
+  name: odh-common-config
+  fieldPath: metadata.annotations.team/namespace
 targets:
   - select:
-      name: my-resource
+      kind: ConfigMap
+      name: odh-common-config
+      fieldPath: metadata.name
