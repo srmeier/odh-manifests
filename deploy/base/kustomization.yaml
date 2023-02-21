@@ -46,6 +46,18 @@ replacements:
       fieldPaths:
         - metadata.name
 - source:
+    kind: Namespace
+    name: opendatahub
+    fieldPath: metadata.annotations.argocd.argoproj.io/managed-by
+  targets:
+    - select:
+        kind: Namespace
+        name: opendatahub
+      fieldPaths:
+        - metadata.labels
+      options:
+        create: true
+- source:
     kind: OperatorGroup
     name: opendatahub
     fieldPath: metadata.annotations.team/namespace
