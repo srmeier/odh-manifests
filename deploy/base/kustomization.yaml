@@ -37,11 +37,11 @@ replacements:
 - path: replacement.yaml
 - source:
     kind: Namespace
-    namespace: opendatahub
+    name: opendatahub
     fieldPath: metadata.annotations.team/namespace
   targets:
     - select:
         kind: Namespace
-        namespace: opendatahub
+        name: opendatahub
       fieldPaths:
         - metadata.name
