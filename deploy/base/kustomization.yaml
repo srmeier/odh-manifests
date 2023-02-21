@@ -38,13 +38,13 @@ replacements:
 - source:
     kind: Namespace
     name: opendatahub
-    fieldPath: metadata.annotations
+    fieldPath: metadata.annotations.argocd.argoproj.io/managed-by
   targets:
     - select:
         kind: Namespace
         name: opendatahub
       fieldPaths:
-        - metadata.labels
+        - metadata.labels.argocd.argoproj.io/managed-by
       options:
         create: true
 - source:
