@@ -23,8 +23,8 @@ resources:
   #
   - ../../notebook-images/base
   #
-  - ../../model-mesh/base
-  - ../../model-mesh/overlays/odh-model-controller
+#  - ../../model-mesh/base
+#  - ../../model-mesh/overlays/odh-model-controller
 #  - ../../model-mesh/crd
   #
   - ../../data-science-pipelines/base
