@@ -34,4 +34,11 @@ resources:
 #  - ../../data-science-pipelines/overlay/default-configs
 
 replacements:
-- path: replacement.yaml
+#- path: replacement.yaml
+- source:
+    fieldPath: metadata.annotations.team/namespace
+  targets:
+    - select:
+        namespace: opendatahub
+      fieldPaths:
+        - metadata.namespace

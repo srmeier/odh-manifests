@@ -1,13 +1,3 @@
-# source:
-#   kind: ConfigMap
-#   name: odh-common-config
-#   fieldPath: metadata.annotations.team/namespace
-# target:
-#   - select:
-#       kind: ConfigMap
-#       name: odh-common-config
-#     fieldPath: data.namespace
-
 source:
   kind: ConfigMap
   name: odh-common-config
