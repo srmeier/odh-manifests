@@ -13,11 +13,11 @@ source:
   name: odh-common-config
   fieldPath: metadata.annotations.team/namespace
 target:
-  - select:
-      kind: ConfigMap
-      #name: odh-common-config
-      #fieldPath: metadata.name
-      #fieldPath: data.namespace
-      fieldPath: metadata.labels.team/namespace
-    options:
-      create: true
+  select:
+    kind: ConfigMap
+    #name: odh-common-config
+    #fieldPath: metadata.name
+    #fieldPath: data.namespace
+    fieldPath: metadata.labels.team/namespace
+  options:
+    create: true
