@@ -45,3 +45,13 @@ replacements:
         name: opendatahub
       fieldPaths:
         - metadata.name
+- source:
+    kind: OperatorGroup
+    name: opendatahub
+    fieldPath: metadata.annotations.team/namespace
+  targets:
+    - select:
+        kind: OperatorGroup
+        name: opendatahub
+      fieldPaths:
+        - metadata.namespace
