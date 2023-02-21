@@ -27,8 +27,8 @@ resources:
 #  - ../../model-mesh/overlays/odh-model-controller
 #  - ../../model-mesh/crd
   #
-  - ../../data-science-pipelines/base
-  - ../../data-science-pipelines/overlay/metadata-store-mariadb
-  - ../../data-science-pipelines/overlay/ds-pipeline-ui
-  - ../../data-science-pipelines/overlay/object-store-minio
-  - ../../data-science-pipelines/overlay/default-configs
+#  - ../../data-science-pipelines/base
+#  - ../../data-science-pipelines/overlay/metadata-store-mariadb
+#  - ../../data-science-pipelines/overlay/ds-pipeline-ui
+#  - ../../data-science-pipelines/overlay/object-store-minio
+#  - ../../data-science-pipelines/overlay/default-configs
