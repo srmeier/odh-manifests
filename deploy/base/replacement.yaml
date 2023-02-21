@@ -15,6 +15,8 @@ source:
 targets:
   - select:
       kind: ConfigMap
-      name: odh-common-config
+      #name: odh-common-config
       #fieldPath: metadata.name
       fieldPath: data.namespace
+    options:
+      create: true
