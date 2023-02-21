@@ -84,3 +84,15 @@ replacements:
         - subjects.[name=odh-dashboard].namespace
       options:
         create: true
+- source:
+    kind: ClusterRoleBinding
+    name: odh-dashboard-auth-delegator
+    fieldPath: metadata.annotations.team/namespace
+  targets:
+    - select:
+        kind: ClusterRoleBinding
+        name: odh-dashboard-auth-delegator
+      fieldPaths:
+        - subjects.[name=odh-dashboard].namespace
+      options:
+        create: true
