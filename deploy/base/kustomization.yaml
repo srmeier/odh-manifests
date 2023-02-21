@@ -34,12 +34,4 @@ resources:
 #  - ../../data-science-pipelines/overlay/default-configs
 
 replacements:
-- source:
-    kind: ConfigMap
-    name: odh-common-config
-    fieldPath: metadata.annotations.team/namespace
-  target:
-  - select:
-      kind: ConfigMap
-      name: odh-common-config
-    fieldPath: data.namespace
+- path: replacement.yaml
