@@ -18,6 +18,6 @@ targets:
       name: odh-common-config
     fieldPaths:
       - metadata.labels.app
-      - data.namespace
+        data.namespace
    options:
      create: true
