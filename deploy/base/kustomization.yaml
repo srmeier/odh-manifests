@@ -36,6 +36,7 @@ resources:
 replacements:
 #- path: replacement.yaml
 - source:
+    namespace: opendatahub
     fieldPath: metadata.annotations.team/namespace
   targets:
     - select:
