@@ -33,5 +33,5 @@ resources:
 #  - ../../data-science-pipelines/overlay/object-store-minio
 #  - ../../data-science-pipelines/overlay/default-configs
 
-# replacements:
-# - path: replacement.yaml
+replacements:
+- path: replacement.yaml
