@@ -4,7 +4,7 @@ kind: KfDef
 metadata:
   # The name of your kfdef object in OpenShift
   name: opendatahub
-  namespace: $ARGOCD_ENV_NAMESPACE
+  namespace: $ARGOCD_APP_NAMESPACE
 # only the components listed in the `KFDef` resource will be deployed:
 spec:
   applications:
