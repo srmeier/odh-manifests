@@ -1,0 +1,62 @@
+# ODH uses the KfDef manifest format to specify what components will be included in the deployment
+apiVersion: kfdef.apps.kubeflow.org/v1
+kind: KfDef
+metadata:
+  # The name of your kfdef object in OpenShift
+  name: opendatahub
+# only the components listed in the `KFDef` resource will be deployed:
+spec:
+  applications:
+    # REQUIRED: This contains all of the common options used by all ODH components
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: odh-common
+      name: odh-common
+    # Deploy ODH Dashboard w/ authentication enabled
+    - kustomizeConfig:
+        overlays:
+        - authentication
+        repoRef:
+          name: manifests
+          path: odh-dashboard
+      name: odh-dashboard
+    # Deploy ODH Notebook Controller
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: odh-notebook-controller
+      name: odh-notebook-controller
+    # Deploy addtional Open Data Hub Jupyter notebooks
+    - kustomizeConfig:
+        overlays:
+          - additional
+        repoRef:
+          name: manifests
+          path: jupyterhub/notebook-images
+      name: notebook-images
+    # Deploy Model Mesh
+    - kustomizeConfig:
+        overlays:
+          - odh-model-controller
+        repoRef:
+          name: manifests
+          path: model-mesh
+      name: model-mesh
+    # Deploy Data Science Pipeline w/ standalone UI
+    - kustomizeConfig:
+        overlays:
+          - metadata-store-mariadb
+          - ds-pipeline-ui
+          - object-store-minio
+          - default-configs
+        repoRef:
+          name: manifests
+          path: data-science-pipelines
+      name: data-science-pipelines
+  # Reference to all of the git repo archives that contain component kustomize manifests
+  repos:
+    # Official Open Data Hub v1.4 component manifests repo
+    # This shows that we will be deploying components from an archive of the odh-manifests repo tagged for v1.4.0
+    - name: manifests
+      uri: 'https://github.com/srmeier/odh-manifests/tarball/v1.4.1'

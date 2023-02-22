@@ -3,10 +3,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - ../../odh-common/base
+  - kfdef.yaml
+  #- ../../odh-common/base
   #
-  - ../../odh-dashboard/base
-  - ../../odh-dashboard/overlays/authentication
+  #- ../../odh-dashboard/base
+  #- ../../odh-dashboard/overlays/authentication
 #  - ../../odh-dashboard/overlays/odhdashboardconfig
 #  - ../../odh-dashboard/crd
   #
@@ -19,7 +20,7 @@ resources:
   #
   #- ../../grafana/grafana/base
   #
-  - ../../odh-notebook-controller/base
+  #- ../../odh-notebook-controller/base
   #
 #  - ../../jupyterhub/notebook-images/base
 #  - ../../jupyterhub/notebook-images/overlays/additional
@@ -35,77 +36,91 @@ resources:
 #  - ../../data-science-pipelines/overlay/default-configs
 
 replacements:
-# Update odh-common-config ConfigMap
-- path: replacement.yaml
-# Make sure that the new namespace is labeled for ArgoCD to manage it
-- source:
-    kind: Namespace
-    name: opendatahub
-    fieldPath: metadata.annotations.[argocd.argoproj.io/managed-by]
-  targets:
-    - select:
-        kind: Namespace
-        name: opendatahub
-      fieldPaths:
-        - metadata.labels.[argocd.argoproj.io/managed-by]
-      options:
-        create: true
-# Update the name of the namespace
-- source:
-    kind: Namespace
-    name: opendatahub
-    fieldPath: metadata.annotations.team/namespace
-  targets:
-    - select:
-        kind: Namespace
-        name: opendatahub
-      fieldPaths:
-        - metadata.name
-# Update the namespace for the OperatorGroup
-- source:
-    kind: OperatorGroup
-    name: opendatahub
-    fieldPath: metadata.annotations.team/namespace
-  targets:
-    - select:
-        kind: OperatorGroup
-        name: opendatahub
-      fieldPaths:
-        - metadata.namespace
-# Specify a namespace for the ClusterRoleBinding subjects
-- source:
-    kind: ClusterRoleBinding
-    name: odh-dashboard-monitoring
-    fieldPath: metadata.annotations.team/namespace
-  targets:
-    - select:
-        kind: ClusterRoleBinding
-        name: odh-dashboard-monitoring
-      fieldPaths:
-        - subjects.[name=odh-dashboard].namespace
-      options:
-        create: true
-- source:
-    kind: ClusterRoleBinding
-    name: odh-dashboard-auth-delegator
-    fieldPath: metadata.annotations.team/namespace
-  targets:
-    - select:
-        kind: ClusterRoleBinding
-        name: odh-dashboard-auth-delegator
-      fieldPaths:
-        - subjects.[name=odh-dashboard].namespace
-      options:
-        create: true
-- source:
-    kind: ClusterRoleBinding
-    name: odh-dashboard
-    fieldPath: metadata.annotations.team/namespace
-  targets:
-    - select:
-        kind: ClusterRoleBinding
-        name: odh-dashboard
-      fieldPaths:
-        - subjects.[name=odh-dashboard].namespace
-      options:
-        create: true
+  - source:
+      kind: KfDef
+      name: opendatahub
+      fieldPath: metadata.annotations.team/namespace
+    targets:
+      - select:
+          kind: KfDef
+          name: opendatahub
+        fieldPaths:
+          - metadata.namespace
+        options:
+          create: true
+
+# replacements:
+# # Update odh-common-config ConfigMap
+# - path: replacement.yaml
+# # Make sure that the new namespace is labeled for ArgoCD to manage it
+# - source:
+#     kind: Namespace
+#     name: opendatahub
+#     fieldPath: metadata.annotations.[argocd.argoproj.io/managed-by]
+#   targets:
+#     - select:
+#         kind: Namespace
+#         name: opendatahub
+#       fieldPaths:
+#         - metadata.labels.[argocd.argoproj.io/managed-by]
+#       options:
+#         create: true
+# # Update the name of the namespace
+# - source:
+#     kind: Namespace
+#     name: opendatahub
+#     fieldPath: metadata.annotations.team/namespace
+#   targets:
+#     - select:
+#         kind: Namespace
+#         name: opendatahub
+#       fieldPaths:
+#         - metadata.name
+# # Update the namespace for the OperatorGroup
+# - source:
+#     kind: OperatorGroup
+#     name: opendatahub
+#     fieldPath: metadata.annotations.team/namespace
+#   targets:
+#     - select:
+#         kind: OperatorGroup
+#         name: opendatahub
+#       fieldPaths:
+#         - metadata.namespace
+# # Specify a namespace for the ClusterRoleBinding subjects
+# - source:
+#     kind: ClusterRoleBinding
+#     name: odh-dashboard-monitoring
+#     fieldPath: metadata.annotations.team/namespace
+#   targets:
+#     - select:
+#         kind: ClusterRoleBinding
+#         name: odh-dashboard-monitoring
+#       fieldPaths:
+#         - subjects.[name=odh-dashboard].namespace
+#       options:
+#         create: true
+# - source:
+#     kind: ClusterRoleBinding
+#     name: odh-dashboard-auth-delegator
+#     fieldPath: metadata.annotations.team/namespace
+#   targets:
+#     - select:
+#         kind: ClusterRoleBinding
+#         name: odh-dashboard-auth-delegator
+#       fieldPaths:
+#         - subjects.[name=odh-dashboard].namespace
+#       options:
+#         create: true
+# - source:
+#     kind: ClusterRoleBinding
+#     name: odh-dashboard
+#     fieldPath: metadata.annotations.team/namespace
+#   targets:
+#     - select:
+#         kind: ClusterRoleBinding
+#         name: odh-dashboard
+#       fieldPaths:
+#         - subjects.[name=odh-dashboard].namespace
+#       options:
+#         create: true
