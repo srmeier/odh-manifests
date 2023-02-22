@@ -6,15 +6,15 @@ metadata:
   name: odh-dashboard-config
 spec:
   dashboardConfig:
-    disableBYONImageStream: false
-    disableClusterManager: false
-    disableISVBadges: false
-    disableInfo: false
-    disableSupport: false
+    disableBYONImageStream: true
+    disableClusterManager: true
+    disableISVBadges: true
+    disableInfo: true
+    disableSupport: true
     disableTracking: true
     enablement: true
   notebookController:
-    enabled: true
+    enabled: false
   notebookSizes:
   - name: Small
     resources:
