@@ -59,4 +59,4 @@ spec:
     # Official Open Data Hub v1.4 component manifests repo
     # This shows that we will be deploying components from an archive of the odh-manifests repo tagged for v1.4.0
     - name: manifests
-      uri: 'https://github.com/srmeier/odh-manifests/tarball/v1.4.1'
+      uri: 'https://github.com/srmeier/odh-manifests/tarball/cio-v1.4.1'
