@@ -47,7 +47,7 @@ spec:
     - kustomizeConfig:
         overlays:
           - metadata-store-mariadb
-          - ds-pipeline-ui
+          # - ds-pipeline-ui
           - object-store-minio
           - default-configs
         repoRef:
