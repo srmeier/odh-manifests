@@ -110,5 +110,5 @@ images:
     newName: gcr.io/ml-pipeline/visualization-server
     newTag: 1.7.0
   - name: api-server
-    newName: image-registry.openshift-image-registry.svc:5000/devx-odh-ns-srmeier/api-server
-    newTag: test
+    newName: registry.cirrus.ibm.com/mamba/odh-api-server-stable
+    newTag: f73835b5-b9f4-4130-a7b0-d897ee2b329f
