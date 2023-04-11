@@ -110,5 +110,5 @@ images:
     newName: gcr.io/ml-pipeline/visualization-server
     newTag: 1.7.0
   - name: api-server
-    newName: quay.io/internaldatahub/api-server
-    newTag: 1.1.0
+    newName: image-registry.openshift-image-registry.svc:5000/devx-odh-ns-srmeier/api-server
+    newTag: test
