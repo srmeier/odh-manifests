@@ -101,5 +101,5 @@ images:
     newName: gcr.io/ml-pipeline/visualization-server
     newTag: 1.7.0
   - name: api-server
-    newName: image-registry.openshift-image-registry.svc:5000/devx-odh-ns-srmeier/api-server
+    newName: docker.io/srmeieribm/api-server
     newTag: test
