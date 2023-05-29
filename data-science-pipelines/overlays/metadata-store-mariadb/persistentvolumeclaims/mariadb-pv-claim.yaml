@@ -5,6 +5,7 @@ metadata:
     application-crd-id: data-science-pipelines
   name: mariadb-pv-claim
 spec:
+  storageClassName: "ocs-storagecluster-cephfs"
   accessModes:
     - ReadWriteOnce
   resources:
