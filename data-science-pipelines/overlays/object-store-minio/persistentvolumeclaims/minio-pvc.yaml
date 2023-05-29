@@ -5,6 +5,7 @@ metadata:
         application-crd-id: data-science-pipelines
     name: minio-pvc
 spec:
+    storageClassName: "ocs-storagecluster-cephfs"
     accessModes:
         - ReadWriteOnce
     resources:
